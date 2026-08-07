@@ -1,0 +1,11 @@
+node_modules
+.next
+.env
+volumes
+prisma/migrations
+README.md
+backup__R2
+rules
+rules/*
+.env*
+.idea

@@ -1,0 +1,17 @@
+# Env — никогда не коммитить
+.env
+.env*
+
+# Docker volumes data
+volumes/db-data/
+
+# Next.js
+.next/
+node_modules/
+backup__R2
+backup__R2/*
+rules
+rules/*
+volumes
+prisma/migrations
+.idea

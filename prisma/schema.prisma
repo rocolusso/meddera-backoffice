@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  DOCTOR
+  SUPERADMIN
+}
+
+model User {
+  id                 String   @id @default(cuid())
+  email              String   @unique
+  name               String
+  role               Role     @default(DOCTOR)
+  passwordHash       String?
+  googleId           String?  @unique
+  telegramId         String?  @unique
+  isActive           Boolean  @default(true)
+  mustChangePassword Boolean  @default(false)
+  createdAt          DateTime @default(now())
+}
+
+model Patient {
+  id              String  @id @default(uuid())
+  fullName        String  @map("full_name")
+  phone           String
+  birthDate       String  @map("birth_date")
+  address         String
+  idnp            String
+  lastVisitDate   String  @map("last_visit_date")
+  complaints      String  @default("")
+  anamnesis       String  @default("")
+  objectiveExam   String  @map("objective_exam") @default("")
+  diagnosis       String  @default("")
+  investigations  String  @default("")
+  recommendations String  @default("")
+  treatment       String  @default("")
+  procedure       String  @default("")
+  product         String  @default("")
+  patientConsent  Boolean @map("patient_consent") @default(false)
+
+  @@map("patients")
+}

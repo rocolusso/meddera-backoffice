@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@media print {
+    @page {
+        size: A4; /* Указываем формат бумаги */
+        margin: 0; /* Убираем отступы браузера (колонтитулы с датой и ссылкой) */
+    }
+
+    body {
+        /* Принудительно печатаем фоновые цвета и картинки */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        background-color: white !important;
+    }
+}
+
+.print-sheet {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #1f2937;
+}
+
+.print-sheet p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.print-sheet .print-label {
+    font-size: 14px;
+    line-height: 1.35;
+    color: #1e3a8a;
+}
+
+.print-sheet .print-value {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #374151;
+}
+
+.print-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}

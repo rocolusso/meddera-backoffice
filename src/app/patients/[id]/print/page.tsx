@@ -20,7 +20,7 @@ export default async function PatientPrintPage({ params }: PatientPrintPageProps
   const printDate = new Date().toLocaleDateString("ru-RU");
 
   return (
-    <div className="min-h-screen bg-gray-200 flex flex-col items-center py-6">
+    <div className="min-h-screen bg-gray-200 flex flex-col items-center py-6 print:bg-white print:py-0">
       <PrintControls />
       <ExaminationPrintSheet patient={patient} printDate={printDate} />
     </div>

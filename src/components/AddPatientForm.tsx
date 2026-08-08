@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { createPatientAction } from "@/lib/actions/patient-actions";
 import PatientFormFields from "@/components/PatientFormFields";
+import { todayIsoDate } from "@/lib/utils/dates";
 
 export default function AddPatientForm() {
   const [state, formAction, pending] = useActionState(createPatientAction, null);
@@ -15,7 +16,7 @@ export default function AddPatientForm() {
         </p>
       ) : null}
 
-      <PatientFormFields />
+      <PatientFormFields defaultValues={{ lastVisitDate: todayIsoDate() }} />
 
       <div className="mt-6">
         <button

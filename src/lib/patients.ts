@@ -120,7 +120,6 @@ export async function updatePatient(
     where: { id },
     data: {
       ...data,
-      lastVisitDate: todayIsoDate(),
     },
   });
   return row as Patient;

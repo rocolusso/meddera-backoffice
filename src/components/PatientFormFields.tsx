@@ -1,6 +1,6 @@
 import type { Patient } from "@/lib/patients";
 
-type PatientFormValues = Partial<Omit<Patient, "id" | "lastVisitDate">>;
+type PatientFormValues = Partial<Omit<Patient, "id">>;
 
 type PatientFormFieldsProps = {
   defaultValues?: PatientFormValues;
@@ -64,6 +64,16 @@ export default function PatientFormFields({
             name="birthDate"
             type="date"
             defaultValue={defaultValues.birthDate ?? ""}
+            className={inputClassName}
+          />
+        </div>
+        <div>
+          <FieldLabel htmlFor="lastVisitDate" ru="Дата визита" ro="Data vizitei" />
+          <input
+            id="lastVisitDate"
+            name="lastVisitDate"
+            type="date"
+            defaultValue={defaultValues.lastVisitDate ?? ""}
             className={inputClassName}
           />
         </div>

@@ -3,8 +3,8 @@
 import { redirect } from "next/navigation";
 import { createPatient, updatePatient, type Patient } from "@/lib/patients";
 
-function parsePatientFormData(formData: FormData): Omit<Patient, "id" | "lastVisitDate"> {
-  const getString = (key: keyof Omit<Patient, "id" | "lastVisitDate" | "patientConsent">) =>
+function parsePatientFormData(formData: FormData): Omit<Patient, "id"> {
+  const getString = (key: keyof Omit<Patient, "id" | "patientConsent">) =>
     String(formData.get(key) ?? "").trim();
 
   return {
@@ -13,6 +13,7 @@ function parsePatientFormData(formData: FormData): Omit<Patient, "id" | "lastVis
     birthDate: getString("birthDate"),
     address: getString("address"),
     idnp: getString("idnp"),
+    lastVisitDate: getString("lastVisitDate"),
     complaints: getString("complaints"),
     anamnesis: getString("anamnesis"),
     objectiveExam: getString("objectiveExam"),
